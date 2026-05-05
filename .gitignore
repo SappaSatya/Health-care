@@ -1,3 +1,8 @@
 __pycache__/
 *.pyc
 /healthcare_data.json
+.env
+dashboard_test.log
+dashboard_test.err.log
+dashboard_server.log
+dashboard_server.err.log

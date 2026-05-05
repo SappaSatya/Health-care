@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Care Analytics Dashboard</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="background-orb orb-a"></div>
+    <div class="background-orb orb-b"></div>
+
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Synthetic Healthcare Intelligence</p>
+          <h1>Patient visits, disease burden, and clinical signals in one dashboard.</h1>
+          <p class="subtitle">
+            A lightweight analytics app powered by your JSON dataset, with optional AI summaries for fast storytelling.
+          </p>
+        </div>
+        <div class="hero-panel">
+          <p class="panel-label">Live Source</p>
+          <strong id="sourceLabel">Loading dataset...</strong>
+          <p id="generatedLabel" class="panel-meta"></p>
+        </div>
+      </section>
+
+      <section class="metric-grid" id="metricGrid"></section>
+
+      <section class="content-grid">
+        <article class="card card-wide">
+          <div class="card-head">
+            <div>
+              <p class="section-kicker">Trend</p>
+              <h2>Visits by Month</h2>
+            </div>
+            <p class="section-note">Chronological view of patient activity</p>
+          </div>
+          <div id="visitsTrend" class="line-chart"></div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div>
+              <p class="section-kicker">Demographics</p>
+              <h2>Gender Mix</h2>
+            </div>
+          </div>
+          <div id="genderBreakdown" class="stack-chart"></div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div>
+              <p class="section-kicker">Disease Load</p>
+              <h2>Top Diagnoses</h2>
+            </div>
+          </div>
+          <div id="topDiseases" class="bar-list"></div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div>
+              <p class="section-kicker">Frequent Patients</p>
+              <h2>Most Visits</h2>
+            </div>
+          </div>
+          <div id="topPatients" class="bar-list"></div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div>
+              <p class="section-kicker">Clinical Flags</p>
+              <h2>Abnormal Observations</h2>
+            </div>
+          </div>
+          <div id="observationAlerts" class="bar-list"></div>
+        </article>
+
+        <article class="card card-wide">
+          <div class="card-head">
+            <div>
+              <p class="section-kicker">Patient Complexity</p>
+              <h2>Patients with Multiple Diseases</h2>
+            </div>
+            <p class="section-note">Distinct diagnoses by patient</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Patient</th>
+                  <th>Visits</th>
+                  <th>Disease Count</th>
+                  <th>Diseases</th>
+                </tr>
+              </thead>
+              <tbody id="complexPatientsBody"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="card ai-card">
+        <div class="card-head">
+          <div>
+            <p class="section-kicker">AI Narrative</p>
+            <h2>Ask for a dashboard insight</h2>
+          </div>
+          <p class="section-note">Uses `OPENAI_API_KEY` from the backend environment</p>
+        </div>
+        <div class="ai-controls">
+          <input
+            id="insightQuestion"
+            type="text"
+            placeholder="Example: Which disease patterns stand out most?"
+          />
+          <button id="insightButton" type="button">Generate Insight</button>
+        </div>
+        <div id="insightOutput" class="insight-output">
+          AI insights will appear here when the backend has an OpenAI API key.
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
